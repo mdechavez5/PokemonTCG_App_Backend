@@ -4,10 +4,14 @@ const Schema = mongoose.Schema
 const userSchema = new mongoose.Schema({
     username: {
         type: String,
-        required: true,
+        required: [true, 'You must provide a username.'], 
+        unique: true
     },
-    password: String,
-})
+    password: {
+        type: String,
+        require: [true, 'You must provide a password.']
+    },
+}, {timestamps: true})
 
 const User = mongoose.model('User', userSchema)
 

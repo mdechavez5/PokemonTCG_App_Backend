@@ -4,6 +4,8 @@ const app = express()
 
 const PORT = process.env.PORT || 4000
 
+require('./config/db.connection')
+
 app.get('/', (req,res) => {
     res.json({
         status: 'ok',
